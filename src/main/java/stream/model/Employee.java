@@ -1,4 +1,4 @@
-package hello;
+package stream.model;
 
 public class Employee {
     private String id;

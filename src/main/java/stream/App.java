@@ -1,25 +1,15 @@
-package hello;
+package stream;
 
+import stream.model.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class Stream {
+public class App {
     public static void main(String[] args) {
-        System.out.println("----------start----------");
-
         List<Employee> employees = buildEmployees();
-
-        List<Employee> employeeList = employees
-                .stream()
-                .filter(employee -> employeeIsValid(employee))
-//                .filter(employee -> employee.getId() == "40")
-                .collect(Collectors.toList());
-
-        System.out.println("employeeList " +  employeeList);
-
-        System.out.println("----------end----------");
+        new Stream1().process(employees);
+        new Stream2().process(employees);
     }
 
     static List<Employee> buildEmployees(){
@@ -42,19 +32,17 @@ public class Stream {
 //        employee3.setAge("30");
         employee3.setCountry("China");
 
+        Employee employee4 =  new Employee();
+        employee4.setId("4");
+        employee4.setName("ben");
+        employee4.setAge("50");
+        employee4.setCountry("China");
+
         employees.add(employee1);
         employees.add(employee2);
         employees.add(employee3);
+        employees.add(employee4);
 
         return employees;
     }
-
-    static boolean employeeIsValid(Employee employee) {
-        if (employee.getAge() == null || employee.getAge().equals("0")){
-            return false; // remove
-        }
-        return true; // return
-    }
 }
-
-
