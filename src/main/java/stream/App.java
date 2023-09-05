@@ -10,6 +10,7 @@ public class App {
         List<Employee> employees = buildEmployees();
         new Stream1().process(employees);
         new Stream2().process(employees);
+        new Stream3_reduce().process(employees);
     }
 
     static List<Employee> buildEmployees(){
