@@ -6,31 +6,33 @@ import stream.model.Employee;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Stream1 {
-    Stream1(){
-    }
+public class Stream_map {
+    public static void main(String[] args) {
+        System.out.println("----------Stream_map----------");
 
-    void process (List<Employee> employees ){
-        System.out.println("----------Stream1----------");
+        List<Employee> employees = BuildEmployees.get();
 
-        List<Employee> employeeList = employees
+        List<String> nameList = employees
                 .stream()
                 .filter(employee -> employeeIsValid(employee))
 //                .filter(employee -> employee.getId() == "40")
+                .map(e -> createName(e))
                 .collect(Collectors.toList());
 
-        System.out.println("employeeList " +  employeeList);
-        System.out.println("----------Stream1----------\n");
+        System.out.println("nameList " +  nameList);
+
+        System.out.println(employees
+                .stream().count());
     }
 
-    boolean employeeIsValid(Employee employee) {
+    static boolean employeeIsValid(Employee employee) {
         if (employee.getAge() == null || employee.getAge().equals("0")){
             return false; // remove
         }
         return true; // return
     }
 
-    String createName (Employee employee){
+    static String createName(Employee employee){
         return employee.getName();
     }
 }

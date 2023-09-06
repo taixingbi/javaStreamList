@@ -3,26 +3,21 @@ package stream;
 
 import stream.model.Employee;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Stream2 {
-    Stream2(){
-    }
+public class Stream_filter {
+    public static void main(String[] args) {
+        System.out.println("----------Stream_filter----------");
 
-    void process (List<Employee> employees ){
-        System.out.println("----------Stream2----------");
-
-        List<String> nameList = employees
+        List<Employee> employees = BuildEmployees.get();
+        List<Employee> employeeList = employees
                 .stream()
                 .filter(employee -> employeeIsValid(employee))
 //                .filter(employee -> employee.getId() == "40")
-                .map(this::createName)
                 .collect(Collectors.toList());
 
-        System.out.println("nameList " +  nameList);
-        System.out.println("----------Stream2----------\n\n\n");
+        System.out.println("employeeList " +  employeeList);
     }
 
     static boolean employeeIsValid(Employee employee) {

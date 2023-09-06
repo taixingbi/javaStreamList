@@ -3,19 +3,15 @@ package stream;
 
 import stream.model.Employee;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class Stream3_reduce {
-    Stream3_reduce(){
+public class Stream_reduce {
+    Stream_reduce(){
     }
 
-    void process (List<Employee> employees ){
-        System.out.println("----------Stream3_reduce----------");
+    public static void main(String[] args) {
+        System.out.println("----------Stream_reduce----------");
 
         List<String> numbers = Arrays.asList("1", "2", "3");
 
@@ -24,7 +20,6 @@ public class Stream3_reduce {
                 .reduce("", (e1, e2) ->  e1 + e2);
 
         System.out.println("result " +  result);
-        System.out.println("----------Stream3_reduce----------\n\n\n");
     }
 
     static boolean employeeIsValid(Employee employee) {

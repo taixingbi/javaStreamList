@@ -5,15 +5,8 @@ import stream.model.Employee;
 import java.util.ArrayList;
 import java.util.List;
 
-public class App {
-    public static void main(String[] args) {
-        List<Employee> employees = buildEmployees();
-        new Stream1().process(employees);
-        new Stream2().process(employees);
-        new Stream3_reduce().process(employees);
-    }
-
-    static List<Employee> buildEmployees(){
+public class BuildEmployees {
+    static List<Employee> get(){
         List<Employee> employees = new ArrayList<>();
         Employee employee1 =  new Employee();
         employee1.setId("1");
